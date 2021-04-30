@@ -65,9 +65,7 @@ func Run(doc, keyword string) error {
 		tokens = tokenize(text).Lowercase().StopWord().Stemmer()
 
 		for lineno, keywords := range kmap {
-			if tokens.Find(keywords) {
-				khit[lineno]++
-			}
+			khit[lineno] += tokens.Count(keywords)
 		}
 
 		if dbg('v') {
