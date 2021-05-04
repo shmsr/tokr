@@ -46,11 +46,13 @@ func (d document) StopWord() document {
 		"on",
 	}
 
-	words = append(words, alnum...)
+	stwds := [][]string{words, alnum}
 
 	wordsmap := make(map[string]struct{})
-	for _, word := range words {
-		wordsmap[word] = struct{}{}
+	for _, stwd := range stwds {
+		for _, word := range stwd {
+			wordsmap[word] = struct{}{}
+		}
 	}
 
 	r := make([]string, 0, len(d))

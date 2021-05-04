@@ -6,11 +6,9 @@ func (doc document) Count(find document) int {
 		mm[w] = struct{}{}
 	}
 
-	var ok bool
-	n := 0
+	n, ok := 0, false
 	for _, w := range doc {
-		_, ok = mm[w]
-		if ok {
+		if _, ok = mm[w]; ok {
 			n++
 		}
 	}
