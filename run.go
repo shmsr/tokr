@@ -8,8 +8,8 @@ import (
 )
 
 var (
-	// Debug is a set of single-letter flag(s):
-	//  r   show [r]esult logging
+	//	Debug is a set of single-letter flag(s):
+	//	r	show [r]esult logging
 	//	v	show [v]erbose logging
 	//
 	Debug = "r"
