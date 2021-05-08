@@ -7,13 +7,11 @@ import (
 	"strings"
 )
 
-var (
-	//	Debug is a set of single-letter flag(s):
-	//	r	show [r]esult logging
-	//	v	show [v]erbose logging
-	//
-	Debug = "r"
-)
+// Debug is a set of single-letter flag(s):
+//	r	show [r]esult logging
+//	v	show [v]erbose logging
+//
+var Debug = "r"
 
 func dbg(b byte) bool { return strings.IndexByte(Debug, b) >= 0 }
 
@@ -21,8 +19,10 @@ func empty(text string) bool {
 	return strings.TrimSpace(text) == ""
 }
 
-type keymap map[int]document
-type keyhit map[int]int
+type (
+	keymap map[int]document
+	keyhit map[int]int
+)
 
 func Run(doc, keyword string) error {
 	kd, err := os.Open(keyword)
