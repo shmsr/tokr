@@ -44,7 +44,7 @@ func Run(doc, keyword string) error {
 		if text = kscanner.Text(); empty(text) {
 			continue
 		}
-		kmap[lineno] = tokenize(text).Lowercase().StopWord().Stemmer()
+		kmap[lineno] = Tokenize(text).Lowercase().StopWord().Stemmer()
 	}
 
 	dd, err := os.Open(doc)
@@ -62,7 +62,7 @@ func Run(doc, keyword string) error {
 			continue
 		}
 
-		tokens = tokenize(text).Lowercase().StopWord().Stemmer()
+		tokens = Tokenize(text).Lowercase().StopWord().Stemmer()
 
 		for lineno, keywords := range kmap {
 			khit[lineno] += tokens.Count(keywords)
